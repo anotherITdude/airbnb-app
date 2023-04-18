@@ -1,4 +1,5 @@
-## ChatGPT Messenger:
+## Airbnb App:
+
 Inspired by https://chat.openai.com/
 
 ## Currrently under development mode:
@@ -14,11 +15,7 @@ Inspired by https://chat.openai.com/
 <li>MondoDB</li>
 </ul>
 
-<!-- 
+<!--
 ## Demo Link
 
 [CLICK HERE](https://chatgpt-messenger-anotheritdude.vercel.app) to see the app hosted on Vercel. -->
-
-
-
-
