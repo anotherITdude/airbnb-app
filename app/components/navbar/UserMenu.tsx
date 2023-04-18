@@ -2,7 +2,7 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
-import MenuItem from './MenuItem';
+import MenuItem from "./MenuItem";
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = useCallback(() => {
@@ -53,7 +53,9 @@ const UserMenu = () => {
           </div>
         </div>
       </div>
-          {isOpen && <div className='
+      {isOpen && (
+        <div
+          className="
           absolute
           rounded-xl
           shadow-md
@@ -64,17 +66,20 @@ const UserMenu = () => {
           right-0
           top-12
           text-sm
-          '>
-              <div className='
+          "
+        >
+          <div
+            className="
               flex flex-col cursor-pointer
-              '>
-                  <>
-                      <MenuItem onClick={() => { }} label='Login' />
-                      <MenuItem onClick={() => {}} label='Sign up' />
-
-                  </>  
-             </div>
-          </div>}
+              "
+          >
+            <>
+              <MenuItem onClick={() => {}} label="Login" />
+              <MenuItem onClick={() => {}} label="Sign up" />
+            </>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
