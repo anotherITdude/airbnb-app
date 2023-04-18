@@ -22,4 +22,5 @@ Inspired by https://www.airbnb.com/
 
 ## Screenshots
 
-<img width="937" alt="Screenshot 2023-04-18 at 10 02 27 PM" src="https://user-images.githubusercontent.com/4363970/232892288-82d64b23-2b12-459d-8644-9746b0ece103.png">
+<img width="935" alt="Screenshot 2023-04-18 at 10 07 08 PM" src="https://user-images.githubusercontent.com/4363970/232893235-ac7f55cb-4b66-442f-942f-11789593e8c6.png">
+
