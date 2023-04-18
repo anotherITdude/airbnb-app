@@ -1,6 +1,6 @@
 ## Airbnb App:
 
-Inspired by https://chat.openai.com/
+Inspired by https://www.airbnb.com/
 
 ## Currrently under development mode:
 
