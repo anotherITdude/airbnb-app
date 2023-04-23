@@ -2,7 +2,8 @@ import "./globals.css";
 import { Nunito } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import ClientSide from "./components/ClientSide";
-import Modal from "./components/Modals/Modal";
+import RegisterModal from "./components/Modals/RegisterModal";
+import ToasterProvider from "./Providers/ToasterProvider";
 
 export const metadata = {
   title: "AnotherItDude | Airbnb App",
@@ -24,10 +25,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientSide>
-          <Modal 
-            actionLabel="submit"
-            title="hello"
-            isOpen />
+          <ToasterProvider />
+          <RegisterModal />
           <Navbar />
         </ClientSide>
         {children}
