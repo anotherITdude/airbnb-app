@@ -19,7 +19,7 @@ Inspired by https://www.airbnb.com/
 
 ```shell
 npm install -d prisma (install prisma)
-npx prisma init (creats schema file)
+npx prisma init (creates schema file)
 npx prisma db push ( pushes prisma schema to mongodb Atlas)
 ```
 
