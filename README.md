@@ -21,6 +21,13 @@ Inspired by https://www.airbnb.com/
 npm install -d prisma (install prisma)
 npx prisma init (creates schema file)
 npx prisma db push ( pushes prisma schema to mongodb Atlas)
+npm install @prisma/client @next-auth/prisma-adapter
+```
+
+## Bcrypt Package
+```shell
+npm install bcrypt
+npm install -D @types/bcrypt
 ```
 
 <!--

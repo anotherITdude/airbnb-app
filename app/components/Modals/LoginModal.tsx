@@ -9,18 +9,22 @@ import Button from "./../Button";
 import Heading from "./../Heading";
 import Input from "./../Inputs/Input";
 import useRegisterModal from "@/app/hooks/useRegister";
+import useLoginModal from "@/app/hooks/useLogin";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
-const RegisterModal = () => {
+const LoginModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -28,32 +32,22 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome to Airbnb" subtitle="Create your account" />
+      <Heading title="Welcome back" subtitle="Login to your account!" />
       <Input
         id="email"
         label="Email"
+        disabled={isLoading}
         register={register}
         errors={errors}
-        disabled={isLoading}
         required
       />
-
-      <Input
-        id="name"
-        label="Name"
-        register={register}
-        errors={errors}
-        disabled={isLoading}
-        required
-      />
-
       <Input
         id="password"
         label="Password"
         type="password"
+        disabled={isLoading}
         register={register}
         errors={errors}
-        disabled={isLoading}
         required
       />
     </div>
@@ -76,9 +70,10 @@ const RegisterModal = () => {
       />
       <div className="justify-center flex flex-row text-neutral-500 text-center mt-4 gap-2 font-light">
         <div>Already have an account?</div>
-              <div
-                  onClick={registerModal.onClose}
-                  className="text-neutral-800 cursor-pointer hover:underline">
+        <div
+          onClick={registerModal.onClose}
+          className="text-neutral-800 cursor-pointer hover:underline"
+        >
           Log in
         </div>
       </div>
@@ -88,27 +83,31 @@ const RegisterModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
-    axios
-      .post("/api/register", data)
-      .then(() => {
-        registerModal.onClose();
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        toast.error(error.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success("Logged in");
+        router.refresh();
+        loginModal.onClose();
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   return (
     <Modal
       disabled={isLoading}
-      isOpen={registerModal.isOpen}
-      title="Register"
+      isOpen={loginModal.isOpen}
+      title="Login"
       actionLabel="Continue"
-      onClose={registerModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}
@@ -116,4 +115,4 @@ const RegisterModal = () => {
   );
 };
 
-export default RegisterModal;
+export default LoginModal;
