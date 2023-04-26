@@ -6,24 +6,29 @@ import MenuItem from "./MenuItem";
 import useRegisterModal from '@/app/hooks/useRegister'
 import useLoginModal from '@/app/hooks/useLogin';
 import  {signOut} from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { SafeUser } from '@/app/types'
 
 interface userMenuProps {
-  currentUser?: User |null
+  currentUser?: SafeUser |null
 }
 
-const UserMenu: React.FC<currentUser> = ({currentUser}) => {
+const UserMenu: React.FC<userMenuProps> = ({currentUser}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = useCallback(() => {
     setIsOpen((val) => !val);
   }, []);
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const router = useRouter();
+  
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div onClick={() => {}} className="navbar__menu_main">
           Airbnb your home
         </div>
+       
         <div onClick={toggleOpen} className="navbar__burger_main">
           <AiOutlineMenu />
           <div className="hidden md:block">
