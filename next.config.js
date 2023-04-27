@@ -4,16 +4,12 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'ui-avatars.com',
-        //port: '',
-        pathname: '/api',
-      },
-    ],
+    domains: [
+      'avatars.githubusercontent.com',
+      'lh3.googleusercontent.com'
+    ]
   },
- 
+
 }
 
 module.exports = nextConfig
