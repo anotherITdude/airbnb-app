@@ -120,7 +120,8 @@ const Categories = () => {
         flex-row
         items-center
         justify-between
-        overflow-x-auto"
+        overflow-x-auto
+        scrollbar-thin"
       >
         {categories.map((item) => (
           <CategoryBox
