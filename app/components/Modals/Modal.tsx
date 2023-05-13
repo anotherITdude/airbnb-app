@@ -28,6 +28,7 @@ const Modal: React.FC<ModalProps> = ({
   secondaryAction,
   secondaryActionLabel,
 }) => {
+  
   const [showModal, setShowModal] = useState(isOpen);
 
   useEffect(() => {
@@ -73,7 +74,7 @@ const Modal: React.FC<ModalProps> = ({
           items-center 
           flex 
           overflow-x-hidden 
-          overflow-y-auto 
+          overflow-y-scroll 
           fixed 
           inset-0 
           z-50 
@@ -85,7 +86,7 @@ const Modal: React.FC<ModalProps> = ({
         <div
           className="
           relative 
-          w-full
+          w-fu ll
           md:w-4/6
           lg:w-3/6
           xl:w-2/5
