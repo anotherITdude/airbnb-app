@@ -54,3 +54,5 @@ npm install react-leaflet
 <img width="900" alt="Screenshot 2023-04-24 at 12 00 54 AM" src="https://user-images.githubusercontent.com/4363970/233868490-72a8f032-1a23-4781-84c2-563bc49b850d.png">
 
 <img width="900" alt="Screenshot 2023-05-14 at 9 59 20 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/386cd944-5f7b-4913-9e32-820c2ee38d5a">
+
+<img width="900" alt="Screenshot 2023-05-15 at 11 40 21 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/e559fe55-505d-4a1c-a9d0-cc35579588ea">
