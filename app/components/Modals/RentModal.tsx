@@ -8,6 +8,7 @@ import CategoryInput from "../Inputs/CategoryInput";
 import { FieldValues, FormState, useForm } from "react-hook-form";
 import CountrySelect from "../Inputs/CountrySelect";
 import dynamic from "next/dynamic";
+import Counter from "../Inputs/Counter";
 
 enum STEPS {
   CATEGORY = 0,
@@ -25,10 +26,10 @@ const RentModal = () => {
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
-      shouldValidate: true
-    })
-  }
-  
+      shouldValidate: true,
+    });
+  };
+
   const onBack = () => {
     setStep((value) => value - 1);
   };
@@ -64,6 +65,7 @@ const RentModal = () => {
       category: "",
       locationValue: null,
       guestCount: 1,
+      roomCount: 1,
       bathroomCount: 1,
       imageSrc: "",
       price: 1,
@@ -72,16 +74,22 @@ const RentModal = () => {
     },
   });
 
-  const location = watch('location');
-  const category = watch('category');
-  const guestCount = watch('guestCount');
-  const roomCount = watch('roomCount');
-  const bathroomCount = watch('bathroomCount');
-  const imageSrc = watch('imageSrc')
+  const location = watch("location");
+  const category = watch("category");
+  const guestCount = watch("guestCount");
+  const roomCount = watch("roomCount");
+  const bathroomCount = watch("bathroomCount");
+  const imageSrc = watch("imageSrc");
 
-  const Map = useMemo(() => dynamic(() => import('../Map'), { 
-    ssr: false 
-  }), [location]);
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../Map"), {
+        ssr: false,
+      }),
+    [location]
+  );
+
+
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
@@ -89,7 +97,7 @@ const RentModal = () => {
         title="Which of these best describes your property"
         subtitle="Pick a category"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto ">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-h-[50vh] overflow-y-auto ">
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
             <CategoryInput
@@ -111,13 +119,61 @@ const RentModal = () => {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <CountrySelect 
-          value={location} 
-          onChange={(value) => setCustomValue('location', value)} 
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue("location", value)}
         />
         <Map center={location?.latlng} />
       </div>
     );
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className='flex flex-col gap-8'>
+        <Heading
+          title='Share some basic information about your place'
+          subtitle='What amenities you have?' />
+        <Counter
+          title='Guests'
+          subtitle='How many guests?'
+          value={guestCount}
+          onChange={(value) => setCustomValue('guestCount', value)}
+        />
+        <Counter
+          title='Rooms'
+          subtitle='How many rooms do you have?'
+          value={roomCount}
+          onChange={(value) => setCustomValue('roomCount', value)}
+        />
+        <Counter
+          title='Bathrooms'
+          subtitle='How many bathrooms do you have?'
+          value={bathroomCount}
+          onChange={(value) => setCustomValue('bathroomCount', value)}
+        />
+      </div>
+    )
+  }
+
+  if (step === STEPS.IMAGES) {
+    bodyContent = (
+      <div>This is body</div>
+    )
+  }
+
+  if (step === STEPS.DESCRIPTION) {
+    bodyContent = (
+      <div>This is description</div>
+    )
+  }
+
+  if (step === STEPS.PRICE) {
+    bodyContent = (
+      <div>
+        price tab
+      </div>
+    )
   }
 
   return (
