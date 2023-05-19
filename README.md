@@ -42,6 +42,11 @@ npm install -D @types/leaflet
 npm install react-leaflet
 ```
 
+## Cloudinary (for serving images)
+```shell
+npm install next-cloudinary
+```
+
 <!--
 ## Demo Link
 
