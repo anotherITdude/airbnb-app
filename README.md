@@ -51,7 +51,7 @@ npm install react-leaflet
 npm install next-cloudinary
 ```
 
-## Date FNS (for fotmating Date)
+## Date FNS (for formating Date)
 
 ```shell
 npm install date-fns
