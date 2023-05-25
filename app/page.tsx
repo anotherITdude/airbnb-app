@@ -5,7 +5,6 @@ import getListings from "@/app/actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
-
 export default async function Home() {
   const currentUser = await getCurrentUser();
   const listings = await getListings();
@@ -32,12 +31,12 @@ export default async function Home() {
             gap-8
           "
         >
-          {listings.map((listing: any) => (
-              <ListingCard
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-              />
+          {listings.map((listing) => (
+            <ListingCard
+              currentUser={currentUser}
+              key={listing.id}
+              data={listing}
+            />
           ))}
         </div>
       </Container>
