@@ -9,6 +9,4 @@ export type SafeUser = Omit<
   emailVerified: string | null;
 };
 
-export type SafeListing = {
-
-}
+export type SafeListing = {};

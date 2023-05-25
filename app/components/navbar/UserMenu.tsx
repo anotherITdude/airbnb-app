@@ -32,7 +32,7 @@ const UserMenu: React.FC<userMenuProps> = ({ currentUser }) => {
   }, [currentUser, loginModal, rentModal]);
 
   return (
-    <div className="relative">      
+    <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div onClick={onRent} className="navbar__menu_main">
           Airbnb your home

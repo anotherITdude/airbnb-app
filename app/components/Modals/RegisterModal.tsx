@@ -34,7 +34,7 @@ const RegisterModal = () => {
   const toggle = useCallback(() => {
     registerModal.onClose();
     loginModal.onOpen();
-},[loginModal, registerModal])
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -76,7 +76,7 @@ const RegisterModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => signIn('google')}
+        onClick={() => signIn("google")}
       />
       <Button
         outline

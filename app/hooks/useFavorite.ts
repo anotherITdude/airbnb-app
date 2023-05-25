@@ -6,8 +6,6 @@ import { toast } from "react-hot-toast";
 import { SafeUser } from "@/app/types";
 import useLoginModal from "./useLogin";
 
-
-
 interface IUseFavorite {
   listingId: string;
   currentUser?: SafeUser | null;
@@ -44,7 +42,7 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
         }
 
         await request();
-        router.refresh(); 
+        router.refresh();
       } catch (error) {
         toast.error("Something went wrong.");
       }

@@ -1,42 +1,41 @@
-'use client'
-import React, { useCallback } from 'react'
-import { CldUploadWidget } from 'next-cloudinary';
-import { TbPhotoPlus } from 'react-icons/tb'
-import Image from 'next/image'
+"use client";
+import React, { useCallback } from "react";
+import { CldUploadWidget } from "next-cloudinary";
+import { TbPhotoPlus } from "react-icons/tb";
+import Image from "next/image";
 
 declare global {
-    var cloudinary: any
+  var cloudinary: any;
 }
 
 const uploadPreset = "p1tfbkaw";
 
-
 interface ImageUploadProps {
-    onChange: (value: string) => void;
-    value: string;
-  }
-  
+  onChange: (value: string) => void;
+  value: string;
+}
 
 const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
+  const handleUpload = useCallback(
+    (result: any) => {
+      onChange(result.info.secure_url);
+    },
+    [onChange],
+  );
 
-    const handleUpload = useCallback((result: any) => {
-        onChange(result.info.secure_url);
-    }, [onChange]);
-
-
-    return (
-        <CldUploadWidget
-            onUpload={handleUpload}
-            uploadPreset={uploadPreset}
-            options={{
-                maxFiles: 1
-            }}
-        >
-            {({ open }) => {
-                return (
-                    <div
-                        onClick={() => open?.()}
-                        className='
+  return (
+    <CldUploadWidget
+      onUpload={handleUpload}
+      uploadPreset={uploadPreset}
+      options={{
+        maxFiles: 1,
+      }}
+    >
+      {({ open }) => {
+        return (
+          <div
+            onClick={() => open?.()}
+            className="
                     relative 
                     cursor-pointer
                     hover:opacity-70 transition
@@ -44,30 +43,28 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
                     flex flex-col justify-center items-center gap-4
                     text-neutral-600 
 
-                    '>
-                        <TbPhotoPlus
-                            size={50}
-                        />
-                        <div className="font-semibold text-lg">
-                            Click to upload
-                        </div>
-                        {value && (
-              <div className="
-              absolute inset-0 w-full h-full">
+                    "
+          >
+            <TbPhotoPlus size={50} />
+            <div className="font-semibold text-lg">Click to upload</div>
+            {value && (
+              <div
+                className="
+              absolute inset-0 w-full h-full"
+              >
                 <Image
-                  fill 
-                  style={{ objectFit: 'contain' }} 
-                  src={value} 
-                  alt="House" 
+                  fill
+                  style={{ objectFit: "contain" }}
+                  src={value}
+                  alt="House"
                 />
               </div>
-                        )}
-                    </div>
-                )
-            }}
+            )}
+          </div>
+        );
+      }}
+    </CldUploadWidget>
+  );
+};
 
-        </CldUploadWidget>
-    )
-}
-
-export default ImageUpload
+export default ImageUpload;

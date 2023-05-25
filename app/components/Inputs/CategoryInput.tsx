@@ -1,16 +1,19 @@
-'use client'
-import React from 'react'
-import {IconType} from 'react-icons'
+"use client";
+import React from "react";
+import { IconType } from "react-icons";
 
 interface CategoryInputProps {
-    onClick: (value:string) => void;
-    label: string;
-    selected?: boolean;
-    icon: IconType
+  onClick: (value: string) => void;
+  label: string;
+  selected?: boolean;
+  icon: IconType;
 }
 
-const CategoryInput:React.FC<CategoryInputProps> = ({
-  label, selected, icon: Icon, onClick  
+const CategoryInput: React.FC<CategoryInputProps> = ({
+  label,
+  selected,
+  icon: Icon,
+  onClick,
 }) => {
   return (
     <div
@@ -24,12 +27,13 @@ const CategoryInput:React.FC<CategoryInputProps> = ({
     cursor-pointer
     transition
     hover:border-black
-    ${selected ? 'border-black' : 'border-neutral-200'}
-`}>
+    ${selected ? "border-black" : "border-neutral-200"}
+`}
+    >
       <Icon size={25} />
-      <div className='semibold'>{label}</div>
+      <div className="semibold">{label}</div>
     </div>
-  )
-}
+  );
+};
 
-export default CategoryInput
+export default CategoryInput;

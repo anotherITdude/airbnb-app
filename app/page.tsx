@@ -4,7 +4,7 @@ import EmptyState from "./components/EmptyState";
 import getListings from "@/app/actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { Suspense } from "react";
+
 
 export default async function Home() {
   const currentUser = await getCurrentUser();
@@ -33,13 +33,11 @@ export default async function Home() {
           "
         >
           {listings.map((listing: any) => (
-            <Suspense fallback={<p>Loading....</p>}>
               <ListingCard
                 currentUser={currentUser}
                 key={listing.id}
                 data={listing}
               />
-            </Suspense>
           ))}
         </div>
       </Container>
