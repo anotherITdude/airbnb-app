@@ -73,3 +73,6 @@ npm install date-fns
 <img width="900" alt="Screenshot 2023-05-15 at 11 40 21 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/e559fe55-505d-4a1c-a9d0-cc35579588ea">
 
 <img width="900" alt="Screenshot 2023-05-22 at 11 58 29 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/0b876169-8fc2-4b91-afec-4f09727940d7">
+
+<img width="900" alt="Screenshot 2023-05-22 at 11 58 29 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/a7d31a9b-4f6a-42ba-9fba-362ba14f68fa">
+
