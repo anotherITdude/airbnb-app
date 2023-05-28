@@ -57,6 +57,12 @@ npm install next-cloudinary
 npm install date-fns
 ```
 
+## Date Range (Adding types for date range)
+```shell
+npm install react-date-range
+npm install -D @types/react-date-range
+```  
+
 <!--
 ## Demo Link
 
@@ -75,4 +81,7 @@ npm install date-fns
 <img width="900" alt="Screenshot 2023-05-22 at 11 58 29 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/0b876169-8fc2-4b91-afec-4f09727940d7">
 
 <img width="900" alt="Screenshot 2023-05-22 at 11 58 29 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/a7d31a9b-4f6a-42ba-9fba-362ba14f68fa">
+
+<img width="900" alt="Screenshot 2023-05-28 at 6 52 39 PM" src="https://github.com/anotherITdude/airbnb-nextapp/assets/4363970/d01aaa75-f93b-4fc7-ad37-5a78de9e8354">
+
 
