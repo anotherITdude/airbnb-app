@@ -2,6 +2,11 @@
 
 Inspired by https://www.airbnb.com/
 
+This repository showcases an Airbnb clone created for demonstration/educational purposes. The project replicates the design and user experience of Airbnb, but please note that all credit for the design and logo goes to Airbnb.
+
+**Note:** This project is not affiliated with Airbnb and should not be used for commercial purposes. The code in this repository is intended for educational use only and should not be used to create a live website or any other commercial application without proper authorization from Airbnb.
+
+
 ## Currrently under development mode:
 
 ## Build Stack:
