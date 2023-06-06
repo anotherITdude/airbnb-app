@@ -64,13 +64,17 @@ const LoginModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {signIn('google')}}
+        onClick={() => {
+          signIn("google");
+        }}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {signIn('github')}}
+        onClick={() => {
+          signIn("github");
+        }}
       />
       <div className="justify-center flex flex-row text-neutral-500 text-center mt-4 gap-2 font-light">
         <div>First time using Airbnb?</div>

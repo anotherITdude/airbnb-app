@@ -29,15 +29,12 @@ const TripsPage = async () => {
       </ClientSide>
     );
   }
-    
-    return (
-        <ClientSide>
-            <TripsClient
-                reservations={reservations}
-                currentUser={currentUser}
-            />
-        </ClientSide>
-    )
+
+  return (
+    <ClientSide>
+      <TripsClient reservations={reservations} currentUser={currentUser} />
+    </ClientSide>
+  );
 };
 
 export default TripsPage;
